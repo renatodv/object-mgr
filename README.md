@@ -6,6 +6,11 @@ Once the app is running please select the different pages from the top left menu
 
 In the project directory, you can run:
 
+## Install
+```
+yarn install
+``` 
+
 ### `yarn start`
 
 Runs the app in the development mode.\
