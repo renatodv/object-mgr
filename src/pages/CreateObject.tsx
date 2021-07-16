@@ -10,6 +10,10 @@ import { useMutation } from "@apollo/client";
 import GraphqlError from "../components/GraphqlError";
 import { CREATE_OBJECT } from "../graphql/mutations";
 
+/**
+ * This page allows the user to create objects.
+ * In case the object already exists it will display an error.
+ */
 const CreateObjectPage = () => {
   const [createObject, { data, error }] = useMutation(CREATE_OBJECT);
   const validationSchema = yup.object({

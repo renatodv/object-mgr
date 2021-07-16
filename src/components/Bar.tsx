@@ -7,6 +7,10 @@ import Typography from "@material-ui/core/Typography";
 import { Menu, MenuItem } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
+/**
+ * This component renders the header bar and its menu so the user can navigate trough the application.
+ * The menu gets displayed if the user clicks on the menu icon.
+ */
 const Bar = () => {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 

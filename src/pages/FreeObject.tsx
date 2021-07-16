@@ -10,6 +10,10 @@ import { useMutation } from "@apollo/client";
 import GraphqlError from "../components/GraphqlError";
 import { FREE_OBJECT } from "../graphql/mutations";
 
+/**
+ * This page allows the user to free objects.
+ * * In case the object does not exist it will display an error.
+ */
 const FreeObjectPage = () => {
   const [freeObject, { data, error }] = useMutation(FREE_OBJECT);
   const validationSchema = yup.object({
