@@ -5,6 +5,7 @@ import * as yup from "yup";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Alert from "@material-ui/lab/Alert";
+import LinearProgress from "@material-ui/core/LinearProgress";
 import { useMutation } from "@apollo/client";
 
 import GraphqlError from "../components/GraphqlError";
@@ -15,7 +16,7 @@ import { CREATE_OBJECT } from "../graphql/mutations";
  * In case the object already exists it will display an error.
  */
 const CreateObjectPage = () => {
-  const [createObject, { data, error }] = useMutation(CREATE_OBJECT);
+  const [createObject, { data, error, loading }] = useMutation(CREATE_OBJECT);
   const validationSchema = yup.object({
     value: yup.number().integer().required("A value is required."),
   });
@@ -59,6 +60,7 @@ const CreateObjectPage = () => {
         </Button>
       </form>
       <br />
+      {loading && <LinearProgress />}
       {data?.createObject?.value && (
         <Alert severity="success">
           You created the object successfully with:{" "}

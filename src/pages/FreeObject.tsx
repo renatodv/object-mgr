@@ -5,6 +5,7 @@ import * as yup from "yup";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Alert from "@material-ui/lab/Alert";
+import LinearProgress from "@material-ui/core/LinearProgress";
 import { useMutation } from "@apollo/client";
 
 import GraphqlError from "../components/GraphqlError";
@@ -15,7 +16,7 @@ import { FREE_OBJECT } from "../graphql/mutations";
  * * In case the object does not exist it will display an error.
  */
 const FreeObjectPage = () => {
-  const [freeObject, { data, error }] = useMutation(FREE_OBJECT);
+  const [freeObject, { data, error, loading }] = useMutation(FREE_OBJECT);
   const validationSchema = yup.object({
     value: yup.number().integer().required("A value is required."),
   });
@@ -59,6 +60,7 @@ const FreeObjectPage = () => {
         </Button>
       </form>
       <br />
+      {loading && <LinearProgress />}
       {data?.freeObject?.value && (
         <Alert severity="success">
           You successfully freed the object:{" "}
