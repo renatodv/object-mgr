@@ -61,7 +61,7 @@ const FreeObjectPage = () => {
       <br />
       {data?.freeObject?.value && (
         <Alert severity="success">
-          You successfully free the object:{" "}
+          You successfully freed the object:{" "}
           <strong>{data.freeObject.value}</strong>
         </Alert>
       )}
