@@ -19,6 +19,11 @@ const GetObjectPage = () => {
     <>
       <Typography variant="h4">Get Object</Typography>
       <br />
+      <Typography variant="subtitle1">
+        To create or free objects, please select the menu on the left top
+        corner.
+      </Typography>
+      <br />
       <div>
         <Button
           onClick={() => getObject()}
