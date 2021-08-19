@@ -11,16 +11,12 @@ describe("<Bar>", () => {
   describe("simple-menu", () => {
     it("should not be visible on init", () => {
       render(<Bar />);
-      expect(screen.queryByTestId("simple-menu")).toHaveStyle({
-        visibility: "hidden",
-      });
+      expect(screen.queryByText("Menu")).not.toBeInTheDocument();
     });
     it("should be visible after cliking on the menu icon", () => {
       render(<Bar />);
       fireEvent.click(screen.getByTestId("menu-icon-buton"));
-      expect(screen.queryByTestId("simple-menu")).not.toHaveStyle({
-        visibility: "hidden",
-      });
+      expect(screen.getByText("Menu")).toBeInTheDocument();
     });
   });
 });
